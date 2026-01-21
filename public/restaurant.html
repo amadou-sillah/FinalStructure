@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant | Food Ordering App</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/restaurant.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html"><i class="fas fa-utensils"></i> FoodApp</a>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="cart.html" class="cart-link">
+                <i class="fas fa-shopping-cart"></i> Cart
+                <span class="cart-count"></span>
+            </a>
+            <a href="profile.html">Profile</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <!-- Restaurant header -->
+        <section class="restaurant-header" id="restaurantHeader">
+            <div class="restaurant-info">
+                <div class="restaurant-title">
+                    <h1 id="restaurantName">Loading...</h1>
+                    <div class="restaurant-rating" id="restaurantRating">
+                        <i class="fas fa-star"></i> <span>0.0</span>
+                    </div>
+                </div>
+                <p class="restaurant-description" id="restaurantDescription"></p>
+                <div class="restaurant-meta">
+                    <span class="meta-item" id="restaurantLocation">
+                        <i class="fas fa-map-marker-alt"></i> Loading...
+                    </span>
+                    <span class="meta-item" id="restaurantDeliveryTime">
+                        <i class="fas fa-clock"></i> Loading...
+                    </span>
+                    <span class="meta-item" id="restaurantCategory">
+                        <i class="fas fa-tag"></i> Restaurant
+                    </span>
+                </div>
+            </div>
+            <div class="restaurant-image">
+                <img id="restaurantImage" src="" alt="Restaurant">
+                <div class="image-overlay">
+                    <button class="btn btn-primary" id="viewMenuBtn">
+                        <i class="fas fa-utensils"></i> View Full Menu
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Menu Section -->
+        <section class="menu-section">
+            <div class="menu-header">
+                <h2><i class="fas fa-utensils"></i> Menu</h2>
+                <div class="menu-filter">
+                    <input type="text" id="menuSearch" placeholder="Search menu items...">
+                </div>
+            </div>
+            <div class="menu-grid" id="menuGrid">
+                <!-- Menu items will be injected here -->
+                <div class="loading-menu">
+                    <div class="spinner"></div>
+                    <p>Loading menu...</p>
+                </div>
+            </div>
+            
+            <!-- No results message -->
+            <div class="no-results" style="display: none;">
+                <i class="fas fa-search"></i>
+                <h3>No items found</h3>
+                <p>Try searching for something else</p>
+            </div>
+        </section>
+        
+        <!-- Cart Sidebar (Mobile) -->
+        <div class="cart-sidebar">
+            <div class="cart-sidebar-header">
+                <h4><i class="fas fa-shopping-cart"></i> Cart</h4>
+                <button class="close-sidebar">&times;</button>
+            </div>
+            <div class="cart-sidebar-items">
+                <!-- Cart items will appear here -->
+            </div>
+            <div class="cart-sidebar-footer">
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span>$0.00</span>
+                </div>
+                <a href="cart.html" class="btn btn-primary btn-block">
+                    <i class="fas fa-shopping-cart"></i> View Cart
+                </a>
+            </div>
+        </div>
+        
+        <!-- Floating Cart Button (Mobile) -->
+        <button class="floating-cart-btn">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-badge">0</span>
+        </button>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 FoodApp. All rights reserved</p>
+    </footer>
+
+    <script type="module" src="js/restaurant.js"></script>
+    <script>
+        // Menu search functionality
+        document.getElementById('menuSearch')?.addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const menuItems = document.querySelectorAll('.menu-item');
+            let visibleItems = 0;
+            
+            menuItems.forEach(item => {
+                const name = item.querySelector('h3').textContent.toLowerCase();
+                const description = item.querySelector('.menu-description').textContent.toLowerCase();
+                
+                if (name.includes(searchTerm) || description.includes(searchTerm)) {
+                    item.style.display = 'block';
+                    visibleItems++;
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+            
+            // Show/hide no results message
+            const noResults = document.querySelector('.no-results');
+            if (visibleItems === 0 && searchTerm.length > 0) {
+                noResults.style.display = 'block';
+            } else {
+                noResults.style.display = 'none';
+            }
+        });
+        
+        // Scroll to menu
+        document.getElementById('viewMenuBtn')?.addEventListener('click', function() {
+            document.querySelector('.menu-section').scrollIntoView({ behavior: 'smooth' });
+        });
+        
+        // Mobile cart functionality
+        const floatingCartBtn = document.querySelector('.floating-cart-btn');
+        const cartSidebar = document.querySelector('.cart-sidebar');
+        const closeSidebar = document.querySelector('.close-sidebar');
+        
+        floatingCartBtn?.addEventListener('click', function() {
+            cartSidebar.style.right = '0';
+        });
+        
+        closeSidebar?.addEventListener('click', function() {
+            cartSidebar.style.right = '-100%';
+        });
+    </script>
+</body>
+</html>

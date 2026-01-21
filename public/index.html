@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodApp | Order Food Online</title>
+
+    <!--Global Styles -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!--NavBar-->
+    <header class="navbar">
+        <div class="logo">
+            <a href="index.html"><i class="fas fa-utensils"></i> FoodApp</a>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <!-- Navigation will be populated by main.js -->
+            </ul>
+            <div class="cart-indicator">
+                <a href="cart.html">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count"></span>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!--Hero Section-->
+    <section class="hero">
+        <div class="hero-overlay">
+            <h1>Order Food From Your Favorite Restaurants</h1>
+            <p>Fast Delivery • Fresh Meals • Trusted Restaurants</p>
+            <a href="#restaurants" class="btn btn-primary btn-hero">Order Now</a>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+     <main class="container">
+        <section class="section-header" id="restaurants">
+            <h2>Popular Restaurants</h2>
+            <p>Choose from the best restaurants near you</p>
+        </section>
+
+        <!--Restaurant list (JS will inject cards here)-->
+        <section class="restaurant-list">
+            <!--Dynamic restaurant cards from main.js-->
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <h2>Why Choose FoodApp?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Fast Delivery</h3>
+                    <p>Get your food delivered in 30 minutes or less</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-star"></i>
+                    <h3>Top Quality</h3>
+                    <p>Only the best restaurants with high ratings</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Secure Payment</h3>
+                    <p>100% secure payment with multiple options</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-headset"></i>
+                    <h3>24/7 Support</h3>
+                    <p>We're here to help you anytime</p>
+                </div>
+            </div>
+        </section>
+     </main>
+
+     <!--Footer-->
+     <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3><i class="fas fa-utensils"></i> FoodApp</h3>
+                <p>Order delicious food from your favorite restaurants with fast delivery.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="cart.html">Cart</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-envelope"></i> support@foodapp.com</p>
+                <p><i class="fas fa-phone"></i> +220 7384758</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 FoodApp. All rights reserved.</p>
+        </div>
+     </footer>
+
+    <!--scripts-->
+    <script type="module" src="js/main.js"></script>
+    
+</body>
+</html>

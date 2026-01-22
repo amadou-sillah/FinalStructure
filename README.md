@@ -208,5 +208,5 @@ Orders (Private)
 •	Input Validation: Controllers perform validation to ensure required fields (like item price or restaurant IDs) are present and valid before proceeding.
 •	Error Handling: The system includes centralized error logs and specific feedback for database connection issues like authentication failures or IP whitelisting errors.
 11. Conclusion
-FoodApp is a complete front-end web application that demonstrates essential Computer Science and Web Development concepts. This project demonstrates a complete full-stack food ordering system using modern web technologies. It applies theoretical concepts learned in Computer Science such as REST APIs, authentication, modular design, and state management to solve a real-world problem. The system is scalable, maintainable, and suitable for academic evaluation or real-world extension
+ This project demonstrates a complete full-stack food ordering system using modern web technologies. It applies theoretical concepts learned in Computer Science such as REST APIs, authentication, modular design, and state management to solve a real-world problem. The system is scalable, maintainable, and suitable for academic evaluation or real-world extension
 
